@@ -4,12 +4,12 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-border/50 py-8 bg-card/30">
+    <footer className="border-t-2 border-border py-8 bg-card">
       <div className="section-container">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Logo & Copyright */}
           <div className="flex flex-col items-center md:items-start gap-2">
-            <span className="text-xl font-bold gradient-text font-mono">KS.</span>
+            <span className="text-xl font-bold text-accent retro-text">KiranShirishala.dev</span>
             <p className="text-sm text-muted-foreground flex items-center gap-1">
               Made with <Heart className="w-4 h-4 text-red-500 fill-red-500" /> by Shirishala Kiran
             </p>
@@ -19,12 +19,12 @@ const Footer = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <a
               href="https://github.com/Kiran95021"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-lg bg-secondary hover:bg-primary/10 hover:border-primary/50 border border-border/50 flex items-center justify-center transition-all duration-300"
+              className="retro-btn retro-btn-secondary !px-3 !py-2"
               aria-label="GitHub"
             >
               <Github className="w-5 h-5" />
@@ -33,7 +33,7 @@ const Footer = () => {
               href="https://linkedin.com/in/kiran-shirishala-492830325"
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 rounded-lg bg-secondary hover:bg-primary/10 hover:border-primary/50 border border-border/50 flex items-center justify-center transition-all duration-300"
+              className="retro-btn retro-btn-secondary !px-3 !py-2"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />

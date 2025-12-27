@@ -1,102 +1,77 @@
-import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import profilePhoto from '@/assets/profile-photo.jpg';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-dot-pattern bg-dot-pattern opacity-20" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-float" />
-      <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float animation-delay-300" />
-      
-      <div className="section-container relative z-10 text-center pt-20">
-        {/* Profile Photo */}
-        <div 
-          className="animate-fade-in-up opacity-0 mb-8"
-          style={{ animationDelay: '50ms', animationFillMode: 'forwards' }}
-        >
-          <div className="relative inline-block">
-            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/50 shadow-glow mx-auto">
-              <img 
-                src={profilePhoto} 
-                alt="Shirishala Kiran" 
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-accent/20 pointer-events-none" />
-          </div>
-        </div>
-
-        {/* Location Badge */}
-        <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 text-sm text-muted-foreground mb-8">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse-glow" />
-            Anantapur, Andhra Pradesh, India
-          </span>
-        </div>
-
+    <section className="min-h-screen flex items-center justify-center relative pt-16">
+      <div className="section-container relative z-10 text-center py-12">
         {/* Name */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in-up opacity-0"
-          style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 retro-text animate-fade-in-up opacity-0"
+          style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
         >
-          <span className="gradient-text">Shirishala Kiran</span>
+          <span className="text-accent">Shirishala</span>{' '}
+          <span className="text-primary">Kiran</span>
         </h1>
-
-        {/* Role */}
-        <p 
-          className="text-lg sm:text-xl md:text-2xl text-muted-foreground mb-4 font-mono animate-fade-in-up opacity-0"
-          style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}
-        >
-          B.Tech CSE (AI & ML) Student | Aspiring Software Developer
-        </p>
 
         {/* Tagline */}
         <p 
-          className="text-base sm:text-lg text-foreground/80 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up opacity-0"
+          className="text-base sm:text-lg md:text-xl text-foreground/90 mb-3 animate-fade-in-up opacity-0"
+          style={{ animationDelay: '200ms', animationFillMode: 'forwards' }}
+        >
+          Hi, I'm Kiran — not an expert yet,
+        </p>
+        <p 
+          className="text-base sm:text-lg md:text-xl text-foreground/90 mb-8 animate-fade-in-up opacity-0"
+          style={{ animationDelay: '300ms', animationFillMode: 'forwards' }}
+        >
+          but I love building practical solutions through code, logic, and continuous learning 😊
+        </p>
+
+        {/* Location */}
+        <p 
+          className="text-lg text-accent font-bold mb-10 animate-fade-in-up opacity-0"
           style={{ animationDelay: '400ms', animationFillMode: 'forwards' }}
         >
-          "Building practical solutions through code, logic, and continuous learning."
+          📍 Anantapur, Andhra Pradesh → Rajkot, Gujarat
         </p>
 
         {/* CTA Buttons */}
         <div 
-          className="flex flex-wrap items-center justify-center gap-4 mb-16 animate-fade-in-up opacity-0"
+          className="flex flex-wrap items-center justify-center gap-4 animate-fade-in-up opacity-0"
           style={{ animationDelay: '500ms', animationFillMode: 'forwards' }}
         >
-          <Button variant="hero" size="lg" asChild>
-            <a href="#projects">View Projects</a>
-          </Button>
-          <Button variant="heroOutline" size="lg" asChild>
-            <a href="https://github.com/Kiran95021" target="_blank" rel="noopener noreferrer">
-              <Github size={20} />
-              GitHub
-            </a>
-          </Button>
-          <Button variant="heroOutline" size="lg" asChild>
-            <a href="https://linkedin.com/in/kiran-shirishala-492830325" target="_blank" rel="noopener noreferrer">
-              <Linkedin size={20} />
-              LinkedIn
-            </a>
-          </Button>
-          <Button variant="glass" size="lg" asChild>
-            <a href="#contact">
-              <Mail size={20} />
-              Contact
-            </a>
-          </Button>
+          <a 
+            href="#projects" 
+            className="retro-btn retro-btn-primary"
+          >
+            View Projects
+          </a>
+          <a 
+            href="https://github.com/Kiran95021" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="retro-btn retro-btn-secondary flex items-center gap-2"
+          >
+            <Github size={18} />
+            GitHub
+          </a>
+          <a 
+            href="https://linkedin.com/in/kiran-shirishala-492830325" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="retro-btn retro-btn-secondary flex items-center gap-2"
+          >
+            <Linkedin size={18} />
+            LinkedIn
+          </a>
+          <a 
+            href="#contact"
+            className="retro-btn retro-btn-accent flex items-center gap-2"
+          >
+            <Mail size={18} />
+            Let's Connect
+          </a>
         </div>
-
-        {/* Scroll Indicator */}
-        <a
-          href="#about"
-          className="inline-flex flex-col items-center gap-2 text-muted-foreground hover:text-primary transition-colors animate-fade-in-up opacity-0"
-          style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}
-        >
-          <span className="text-sm font-medium">Scroll to explore</span>
-          <ArrowDown size={20} className="animate-bounce" />
-        </a>
       </div>
     </section>
   );
