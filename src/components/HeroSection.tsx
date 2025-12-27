@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, ArrowDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import profilePhoto from '@/assets/profile-photo.jpg';
 
 const HeroSection = () => {
   return (
@@ -10,6 +11,23 @@ const HeroSection = () => {
       <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent/10 rounded-full blur-3xl animate-float animation-delay-300" />
       
       <div className="section-container relative z-10 text-center pt-20">
+        {/* Profile Photo */}
+        <div 
+          className="animate-fade-in-up opacity-0 mb-8"
+          style={{ animationDelay: '50ms', animationFillMode: 'forwards' }}
+        >
+          <div className="relative inline-block">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 rounded-full overflow-hidden border-4 border-primary/50 shadow-glow mx-auto">
+              <img 
+                src={profilePhoto} 
+                alt="Shirishala Kiran" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-primary/20 to-accent/20 pointer-events-none" />
+          </div>
+        </div>
+
         {/* Location Badge */}
         <div className="animate-fade-in-up opacity-0" style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}>
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border/50 text-sm text-muted-foreground mb-8">
