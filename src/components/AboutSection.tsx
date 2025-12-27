@@ -1,78 +1,74 @@
-import { Code, Brain, Lightbulb, Users } from 'lucide-react';
+import { GraduationCap, Rocket, Lightbulb } from 'lucide-react';
+import profilePhoto from '@/assets/profile-photo.jpg';
 
-const highlights = [
-  {
-    icon: Brain,
-    title: 'AI & ML Focus',
-    description: 'Specializing in Artificial Intelligence and Machine Learning',
-  },
-  {
-    icon: Code,
-    title: 'Strong Foundation',
-    description: 'Proficient in C, C++, Python with solid DSA knowledge',
-  },
-  {
-    icon: Lightbulb,
-    title: 'Problem Solver',
-    description: 'Passionate about real-world problem solving',
-  },
-  {
-    icon: Users,
-    title: 'Team Leader',
-    description: 'Effective communication and leadership skills',
-  },
+const badges = [
+  { icon: GraduationCap, label: 'AI & ML Student' },
+  { icon: Rocket, label: 'Aspiring Developer' },
+  { icon: Lightbulb, label: 'Open Source Contributor' },
 ];
 
 const AboutSection = () => {
   return (
-    <section id="about" className="section-spacing relative">
+    <section id="about" className="section-spacing">
       <div className="section-container">
-        {/* Section Title */}
-        <div className="text-center mb-16">
-          <span className="text-primary font-mono text-sm tracking-wider uppercase mb-4 block">
-            About Me
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Get to know <span className="gradient-text">me</span>
-          </h2>
-          <div className="w-24 h-1 bg-primary/50 mx-auto rounded-full" />
-        </div>
-
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
-          <div className="space-y-6">
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a motivated <span className="text-foreground font-medium">B.Tech CSE (AI & ML)</span> student 
-              with a strong foundation in programming and data structures. My journey in tech is driven by 
-              curiosity and a passion for creating practical solutions.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              With expertise in <span className="text-primary">C, C++, and Python</span>, along with 
-              intermediate knowledge of Data Structures & Algorithms, I'm constantly pushing myself 
-              to learn and grow as a developer.
-            </p>
-            <p className="text-lg text-muted-foreground leading-relaxed">
-              I'm a fast learner who thrives in team environments, bringing strong 
-              communication and leadership skills to every project. My goal is to leverage 
-              AI/ML technologies to build innovative solutions that make a real impact.
-            </p>
+        {/* Section Container - Card style like reference */}
+        <div className="retro-card p-6 md:p-10">
+          {/* Section Title */}
+          <div className="text-center mb-10">
+            <h2 className="section-title">About Me</h2>
           </div>
 
-          {/* Highlights Grid */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            {highlights.map((item, index) => (
-              <div
-                key={item.title}
-                className="glass-card p-6 hover-lift group"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <item.icon className="w-6 h-6 text-primary" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+          <div className="grid lg:grid-cols-5 gap-8 items-start">
+            {/* Content - Left side */}
+            <div className="lg:col-span-3 space-y-5">
+              <p className="text-base md:text-lg leading-relaxed text-foreground/90">
+                Hi, I'm <span className="text-accent font-bold">Shirishala Kiran</span>. I'm studying AI & ML at Marwadi University, 
+                and I spend most of my time these days figuring out how to actually build things that work — whether it's a 
+                campus marketplace, a student utility tool, or exploring new technologies.
+              </p>
+              <p className="text-base md:text-lg leading-relaxed text-foreground/90">
+                My journey in tech is shaped by curiosity — from creating practical solutions for students to exploring 
+                how AI/ML can solve real-world problems. I enjoy taking ideas that sound challenging and turning them into 
+                working prototypes.
+              </p>
+              <p className="text-base md:text-lg leading-relaxed text-foreground/90">
+                Outside of coding, I'm usually solving problems on LeetCode, reading documentation, or planning my next project. 
+                These experiences keep me sharp and help me see problems from different perspectives.
+              </p>
+              <p className="text-base md:text-lg leading-relaxed text-foreground/90">
+                I'm driven by the challenge of learning, iterating, and pushing projects from "just an idea" to 
+                "something people can actually use." For me, the real excitement lies in building and shipping!
+              </p>
+              <p className="text-base md:text-lg leading-relaxed text-primary font-bold">
+                Feel free to explore my projects below, and if you want to chat about tech or just say hi, don't hesitate to reach out!
+              </p>
+            </div>
+
+            {/* Photo & Badges - Right side */}
+            <div className="lg:col-span-2 flex flex-col items-center gap-4">
+              {/* Profile Photo */}
+              <div className="w-48 h-56 md:w-56 md:h-64 rounded-lg overflow-hidden border-4 border-border bg-secondary"
+                   style={{ boxShadow: 'var(--shadow-card)' }}>
+                <img 
+                  src={profilePhoto} 
+                  alt="Shirishala Kiran" 
+                  className="w-full h-full object-cover"
+                />
               </div>
-            ))}
+
+              {/* Role Badges */}
+              <div className="flex flex-col gap-3 w-full max-w-[14rem]">
+                {badges.map((badge) => (
+                  <div 
+                    key={badge.label}
+                    className="role-badge flex items-center gap-3 text-sm"
+                  >
+                    <badge.icon size={18} />
+                    <span>{badge.label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>

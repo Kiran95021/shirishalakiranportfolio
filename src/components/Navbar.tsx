@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
-import { Button } from '@/components/ui/button';
 
 const navLinks = [
   { href: '#about', label: 'About' },
-  { href: '#education', label: 'Education' },
-  { href: '#skills', label: 'Skills' },
   { href: '#projects', label: 'Projects' },
-  { href: '#experience', label: 'Experience' },
   { href: '#achievements', label: 'Achievements' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#contact', label: 'Connect' },
 ];
 
 const Navbar = () => {
@@ -32,27 +30,27 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-background/90 backdrop-blur-xl border-b border-border/50 shadow-lg shadow-background/20'
+          ? 'bg-card/95 backdrop-blur-sm border-b-2 border-border'
           : 'bg-transparent'
       }`}
     >
       <div className="section-container">
-        <div className="flex items-center justify-between h-16 md:h-20">
+        <div className="flex items-center justify-between h-14 md:h-16">
           {/* Logo */}
           <a
             href="#"
-            className="text-xl md:text-2xl font-bold gradient-text font-mono"
+            className="text-xl md:text-2xl font-bold text-accent retro-text"
           >
-            KS<span className="text-foreground">.</span>
+            KiranShirishala.dev
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="nav-link text-sm font-medium"
+                className="nav-link text-sm font-bold uppercase tracking-wider"
               >
                 {link.label}
               </a>
@@ -60,33 +58,31 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
+          <button
+            className="md:hidden p-2 text-foreground"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </Button>
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-xl border-b border-border/50 transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 right-0 bg-card border-b-2 border-border transition-all duration-300 ${
           isMobileMenuOpen
             ? 'opacity-100 translate-y-0'
-            : 'opacity-0 -translate-y-4 pointer-events-none'
+            : 'opacity-0 -translate-y-2 pointer-events-none'
         }`}
       >
-        <div className="section-container py-6 flex flex-col gap-4">
+        <div className="section-container py-4 flex flex-col gap-2">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               onClick={handleLinkClick}
-              className="text-muted-foreground hover:text-foreground transition-colors py-2 text-lg"
+              className="text-muted-foreground hover:text-foreground transition-colors py-2 text-sm font-bold uppercase"
             >
               {link.label}
             </a>
