@@ -69,7 +69,7 @@ const ProjectsSection = () => {
                     GitHub
                   </a>
                   <a
-                    href={project.github}
+                    href="https://swapxuniversity.vercel.app/home"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="retro-btn retro-btn-secondary text-sm flex items-center gap-2"
