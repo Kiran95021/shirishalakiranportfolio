@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const FireLetter = ({ letter, index, color }: { letter: string; index: number; color: string }) => {
   return (
@@ -13,23 +14,86 @@ const FireLetter = ({ letter, index, color }: { letter: string; index: number; c
   );
 };
 
+const Ember = ({ delay, size, left }: { delay: number; size: number; left: number }) => (
+  <div
+    className="ember"
+    style={{
+      animationDelay: `${delay}s`,
+      width: `${size}px`,
+      height: `${size}px`,
+      left: `${left}%`,
+    }}
+  />
+);
+
+const Flame = ({ delay, left }: { delay: number; left: number }) => (
+  <div
+    className="flame-particle"
+    style={{
+      animationDelay: `${delay}s`,
+      left: `${left}%`,
+    }}
+  />
+);
+
 const HeroSection = () => {
   const firstName = "Shirishala";
   const lastName = "Kiran";
+  const [showFlames, setShowFlames] = useState(false);
+
+  useEffect(() => {
+    // Start flames after dragon arrives
+    const timer = setTimeout(() => setShowFlames(true), 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Generate random embers
+  const embers = Array.from({ length: 20 }, (_, i) => ({
+    delay: Math.random() * 3,
+    size: Math.random() * 6 + 3,
+    left: Math.random() * 100,
+  }));
+
+  // Generate flame particles
+  const flames = Array.from({ length: 15 }, (_, i) => ({
+    delay: Math.random() * 2,
+    left: 10 + Math.random() * 80,
+  }));
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative pt-16">
+    <section className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
+      {/* Embers floating up */}
+      <div className="absolute inset-0 pointer-events-none">
+        {embers.map((ember, i) => (
+          <Ember key={i} {...ember} />
+        ))}
+      </div>
+
+      {/* Flame particles around name */}
+      {showFlames && (
+        <div className="absolute inset-0 pointer-events-none">
+          {flames.map((flame, i) => (
+            <Flame key={i} {...flame} />
+          ))}
+        </div>
+      )}
+
       <div className="section-container relative z-10 text-center py-12">
-        {/* Dragon Icon */}
-        <div 
-          className="text-5xl md:text-6xl mb-4 animate-dragon-breathe"
-          style={{ animationDelay: '0ms' }}
-        >
-          🐉
+        {/* Flying Dragon that circles around */}
+        <div className="dragon-container">
+          <div className="flying-dragon">
+            <span className="dragon-emoji">🐉</span>
+            {/* Fire breath trail */}
+            <div className="fire-breath">
+              <span>🔥</span>
+              <span>🔥</span>
+              <span>🔥</span>
+            </div>
+          </div>
         </div>
 
         {/* Name with Fire Animation */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 retro-text">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 retro-text relative name-container">
           <span className="inline-block">
             {firstName.split('').map((letter, index) => (
               <FireLetter key={index} letter={letter} index={index} color="fire-accent" />
