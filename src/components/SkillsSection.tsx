@@ -4,7 +4,12 @@ const skillCategories = [
   {
     icon: '🐍',
     title: 'Programming Languages',
-    skills: ['C', 'C++', 'Python'],
+    skills: ['C', 'C++', 'Python', 'HTML', 'CSS'],
+  },
+  {
+    icon: '📚',
+    title: 'Libraries & Frameworks',
+    skills: ['NumPy', 'Pandas'],
   },
   {
     icon: '🤖',
