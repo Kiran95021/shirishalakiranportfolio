@@ -1,16 +1,45 @@
 import { Github, Linkedin, Mail } from 'lucide-react';
 
+const FireLetter = ({ letter, index, color }: { letter: string; index: number; color: string }) => {
+  return (
+    <span
+      className={`inline-block fire-letter ${color}`}
+      style={{
+        animationDelay: `${index * 120}ms`,
+      }}
+    >
+      {letter === ' ' ? '\u00A0' : letter}
+    </span>
+  );
+};
+
 const HeroSection = () => {
+  const firstName = "Shirishala";
+  const lastName = "Kiran";
+
   return (
     <section className="min-h-screen flex items-center justify-center relative pt-16">
       <div className="section-container relative z-10 text-center py-12">
-        {/* Name */}
-        <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 retro-text animate-fade-in-up opacity-0"
-          style={{ animationDelay: '100ms', animationFillMode: 'forwards' }}
+        {/* Dragon Icon */}
+        <div 
+          className="text-5xl md:text-6xl mb-4 animate-dragon-breathe"
+          style={{ animationDelay: '0ms' }}
         >
-          <span className="text-accent">Shirishala</span>{' '}
-          <span className="text-primary">Kiran</span>
+          🐉
+        </div>
+
+        {/* Name with Fire Animation */}
+        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 retro-text">
+          <span className="inline-block">
+            {firstName.split('').map((letter, index) => (
+              <FireLetter key={index} letter={letter} index={index} color="fire-accent" />
+            ))}
+          </span>
+          <span className="inline-block ml-2 sm:ml-4">
+            {lastName.split('').map((letter, index) => (
+              <FireLetter key={index} letter={letter} index={index + firstName.length + 1} color="fire-primary" />
+            ))}
+          </span>
         </h1>
 
         {/* Tagline */}

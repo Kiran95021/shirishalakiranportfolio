@@ -225,6 +225,101 @@
   50% { transform: translateY(-8px); }
 }
 
+/* Dragon Fire Animation for Name */
+@keyframes dragonBreathe {
+  0% {
+    transform: scale(0) rotate(-20deg);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.3) rotate(10deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fireAppear {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0);
+    filter: blur(10px);
+  }
+  30% {
+    opacity: 1;
+    transform: translateY(-10px) scale(1.2);
+    filter: blur(0);
+  }
+  50% {
+    transform: translateY(5px) scale(0.9);
+  }
+  70% {
+    transform: translateY(-3px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes fireGlow {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px hsl(var(--accent)),
+      0 0 20px hsl(var(--accent)),
+      0 0 30px hsl(var(--accent) / 0.8),
+      0 0 40px hsl(var(--accent) / 0.6);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px hsl(var(--accent)),
+      0 0 40px hsl(var(--accent)),
+      0 0 60px hsl(var(--accent) / 0.8),
+      0 0 80px hsl(var(--accent) / 0.6);
+  }
+}
+
+@keyframes fireGlowPrimary {
+  0%, 100% {
+    text-shadow: 
+      0 0 10px hsl(var(--primary)),
+      0 0 20px hsl(var(--primary)),
+      0 0 30px hsl(var(--primary) / 0.8),
+      0 0 40px hsl(var(--primary) / 0.6);
+  }
+  50% {
+    text-shadow: 
+      0 0 20px hsl(var(--primary)),
+      0 0 40px hsl(var(--primary)),
+      0 0 60px hsl(var(--primary) / 0.8),
+      0 0 80px hsl(var(--primary) / 0.6);
+  }
+}
+
+.animate-dragon-breathe {
+  animation: dragonBreathe 1s ease-out forwards;
+}
+
+.fire-letter {
+  opacity: 0;
+  animation: fireAppear 0.8s ease-out forwards;
+}
+
+.fire-accent {
+  color: hsl(var(--accent));
+  animation: fireAppear 0.8s ease-out forwards, fireGlow 2s ease-in-out infinite;
+  animation-delay: inherit;
+}
+
+.fire-primary {
+  color: hsl(var(--primary));
+  animation: fireAppear 0.8s ease-out forwards, fireGlowPrimary 2s ease-in-out infinite;
+  animation-delay: inherit;
+}
+
 /* Retro scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
