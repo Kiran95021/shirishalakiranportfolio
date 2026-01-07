@@ -8,14 +8,16 @@ const roles = [
   'Open-Source Contributor',
 ];
 
-// Actual project count from ProjectsSection
+// Actual counts
 const PROJECT_COUNT = 1;
+const PR_COUNT = 10; // Update this with your actual merged PR count
+const DSA_COUNT = 27; // 5 LeetCode + 22 GeeksforGeeks
 
 const stats = [
   {
     icon: Star,
-    value: 10,
-    suffix: '+',
+    value: PR_COUNT,
+    suffix: '',
     label: 'Open-Source PRs Merged',
     href: 'https://github.com/pulls?q=is%3Apr+author%3AKiran95021+is%3Amerged',
     external: true,
@@ -30,8 +32,8 @@ const stats = [
   },
   {
     icon: Brain,
-    value: 150,
-    suffix: '+',
+    value: DSA_COUNT,
+    suffix: '',
     label: 'DSA Problems Solved',
     href: 'https://leetcode.com/u/Kiran_1013',
     external: true,
