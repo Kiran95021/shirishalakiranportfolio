@@ -8,6 +8,9 @@ const roles = [
   'Open-Source Contributor',
 ];
 
+// Actual project count from ProjectsSection
+const PROJECT_COUNT = 1;
+
 const stats = [
   {
     icon: Star,
@@ -19,9 +22,9 @@ const stats = [
   },
   {
     icon: Rocket,
-    value: 5,
-    suffix: '+',
-    label: 'Projects Built',
+    value: PROJECT_COUNT,
+    suffix: '',
+    label: PROJECT_COUNT === 1 ? 'Project Built' : 'Projects Built',
     href: '#projects',
     external: false,
   },
