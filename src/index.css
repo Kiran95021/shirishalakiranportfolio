@@ -225,6 +225,36 @@
   50% { transform: translateY(-8px); }
 }
 
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-blink,
+  .animate-bounce-subtle,
+  .animate-fade-in,
+  .animate-fade-in-up,
+  .animate-slide-in-left,
+  .animate-slide-in-right,
+  .animate-float {
+    animation: none;
+  }
+}
+
 /* Retro scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
