@@ -16,7 +16,7 @@ const roles = [
 
 // Actual counts
 const PROJECT_COUNT = 1;
-const PR_COUNT = 10; // Update this with your actual merged PR count
+const PR_COUNT = 20;
 const LEETCODE_COUNT = 5;
 const GFG_COUNT = 22;
 const DSA_COUNT = LEETCODE_COUNT + GFG_COUNT;
@@ -35,7 +35,7 @@ const stats: StatItem[] = [
   {
     icon: Star,
     value: PR_COUNT,
-    suffix: '',
+    suffix: '+',
     label: 'Open-Source PRs Merged',
     href: 'https://github.com/pulls?q=is%3Apr+author%3AKiran95021+is%3Amerged',
     external: true,
