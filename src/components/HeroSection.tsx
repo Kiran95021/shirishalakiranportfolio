@@ -1,6 +1,12 @@
+import { useState } from 'react';
 import { Github, Linkedin, Mail, Star, Rocket, Brain } from 'lucide-react';
 import { useTypingEffect } from '@/hooks/useTypingEffect';
 import { useCountUp } from '@/hooks/useCountUp';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 
 const roles = [
   'AI/ML Student',
@@ -11,9 +17,21 @@ const roles = [
 // Actual counts
 const PROJECT_COUNT = 1;
 const PR_COUNT = 10; // Update this with your actual merged PR count
-const DSA_COUNT = 27; // 5 LeetCode + 22 GeeksforGeeks
+const LEETCODE_COUNT = 5;
+const GFG_COUNT = 22;
+const DSA_COUNT = LEETCODE_COUNT + GFG_COUNT;
 
-const stats = [
+type StatItem = {
+  icon: typeof Star;
+  value: number;
+  suffix: string;
+  label: string;
+  href?: string;
+  external?: boolean;
+  isDSA?: boolean;
+};
+
+const stats: StatItem[] = [
   {
     icon: Star,
     value: PR_COUNT,
@@ -35,18 +53,17 @@ const stats = [
     value: DSA_COUNT,
     suffix: '',
     label: 'DSA Problems Solved',
-    href: 'https://leetcode.com/u/Kiran_1013',
-    external: true,
+    isDSA: true,
   },
 ];
 
-const StatCard = ({ icon: Icon, value, suffix, label, href, external }: typeof stats[0]) => {
+const StatCard = ({ icon: Icon, value, suffix, label, href, external }: StatItem) => {
   const { count, elementRef } = useCountUp({ end: value, duration: 2000 });
   
   const handleClick = () => {
-    if (external) {
+    if (external && href) {
       window.open(href, '_blank', 'noopener,noreferrer');
-    } else {
+    } else if (href) {
       const element = document.querySelector(href);
       element?.scrollIntoView({ behavior: 'smooth' });
     }
@@ -66,6 +83,59 @@ const StatCard = ({ icon: Icon, value, suffix, label, href, external }: typeof s
         <span className="text-sm text-foreground/80 ml-1">{label}</span>
       </div>
     </div>
+  );
+};
+
+const DSAStatCard = () => {
+  const { count, elementRef } = useCountUp({ end: DSA_COUNT, duration: 2000 });
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Popover open={open} onOpenChange={setOpen}>
+      <PopoverTrigger asChild>
+        <div
+          ref={elementRef}
+          className="flex items-center gap-3 px-4 py-3 bg-card/50 border border-border rounded-lg cursor-pointer transition-all duration-200 hover:bg-card hover:scale-105 hover:border-primary/50"
+        >
+          <Brain className="w-5 h-5 text-accent shrink-0" />
+          <div className="text-left">
+            <span className="text-lg font-bold text-primary">
+              {count}
+            </span>
+            <span className="text-sm text-foreground/80 ml-1">DSA Problems Solved</span>
+          </div>
+        </div>
+      </PopoverTrigger>
+      <PopoverContent className="w-64 bg-card border-border p-4">
+        <div className="space-y-3">
+          <h4 className="font-bold text-foreground text-sm">Problem Breakdown</h4>
+          <div className="space-y-2">
+            <a 
+              href="https://leetcode.com/u/Kiran_1013" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-between p-2 rounded bg-secondary/50 hover:bg-secondary transition-colors"
+            >
+              <span className="text-sm text-foreground/90">🟡 LeetCode</span>
+              <span className="font-bold text-primary">{LEETCODE_COUNT}</span>
+            </a>
+            <a 
+              href="https://www.geeksforgeeks.org/user/shirishalagftl/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-between p-2 rounded bg-secondary/50 hover:bg-secondary transition-colors"
+            >
+              <span className="text-sm text-foreground/90">🟢 GeeksforGeeks</span>
+              <span className="font-bold text-primary">{GFG_COUNT}</span>
+            </a>
+          </div>
+          <div className="pt-2 border-t border-border flex items-center justify-between">
+            <span className="text-sm font-medium text-foreground/80">Total</span>
+            <span className="font-bold text-accent">{DSA_COUNT}</span>
+          </div>
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 };
 
@@ -170,9 +240,10 @@ const HeroSection = () => {
           className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up opacity-0"
           style={{ animationDelay: '600ms', animationFillMode: 'forwards' }}
         >
-          {stats.map((stat) => (
+          {stats.filter(s => !s.isDSA).map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}
+          <DSAStatCard />
         </div>
 
         {/* Scroll Indicator */}
