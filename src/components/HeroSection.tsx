@@ -14,12 +14,12 @@ const roles = [
   'Open-Source Contributor',
 ];
 
-// Actual counts
-const PROJECT_COUNT = 1;
-const PR_COUNT = 20;
-const LEETCODE_COUNT = 5;
-const GFG_COUNT = 22;
-const DSA_COUNT = LEETCODE_COUNT + GFG_COUNT;
+// Actual verified counts
+const PROJECT_COUNT = 1; // From ProjectsSection
+const PR_COUNT = 20; // GitHub PRs merged
+const LEETCODE_COUNT = 5; // Verified from LeetCode profile
+const GFG_COUNT = 22; // Verified from GeeksforGeeks profile
+const DSA_COUNT = LEETCODE_COUNT + GFG_COUNT; // Total: 27
 
 type StatItem = {
   icon: typeof Star;
