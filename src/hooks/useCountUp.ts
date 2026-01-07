@@ -4,18 +4,19 @@ interface UseCountUpProps {
   end: number;
   duration?: number;
   startOnMount?: boolean;
+  disabled?: boolean;
 }
 
-export const useCountUp = ({ end, duration = 2000, startOnMount = true }: UseCountUpProps) => {
+export const useCountUp = ({ end, duration = 2000, startOnMount = true, disabled = false }: UseCountUpProps) => {
   const [count, setCount] = useState(0);
   const [hasStarted, setHasStarted] = useState(false);
   const elementRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Check for reduced motion preference
+    // Check for reduced motion preference or disabled state
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || disabled) {
       setCount(end);
       return;
     }
@@ -34,9 +35,14 @@ export const useCountUp = ({ end, duration = 2000, startOnMount = true }: UseCou
     }
 
     return () => observer.disconnect();
-  }, [hasStarted, end]);
+  }, [hasStarted, end, disabled]);
 
   useEffect(() => {
+    if (disabled) {
+      setCount(end);
+      return;
+    }
+    
     if (!hasStarted && startOnMount) return;
     if (!hasStarted) return;
 
@@ -60,7 +66,7 @@ export const useCountUp = ({ end, duration = 2000, startOnMount = true }: UseCou
     };
 
     requestAnimationFrame(animate);
-  }, [hasStarted, end, duration, startOnMount]);
+  }, [hasStarted, end, duration, startOnMount, disabled]);
 
   return { count, elementRef };
 };

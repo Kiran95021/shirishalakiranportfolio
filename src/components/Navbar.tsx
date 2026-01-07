@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
+import RecruiterModeToggle from './RecruiterModeToggle';
+import { useRecruiterMode } from '@/contexts/RecruiterModeContext';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -13,6 +15,7 @@ const navLinks = [
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { isRecruiterMode } = useRecruiterMode();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,8 +48,8 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
-            {navLinks.map((link) => (
+          <div className="hidden md:flex items-center gap-4">
+            {!isRecruiterMode && navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
@@ -55,6 +58,7 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <RecruiterModeToggle variant="desktop" />
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,7 +81,12 @@ const Navbar = () => {
         }`}
       >
         <div className="section-container py-4 flex flex-col gap-2">
-          {navLinks.map((link) => (
+          {/* Recruiter Mode Toggle - Mobile */}
+          <div className="pb-2 mb-2 border-b border-border">
+            <RecruiterModeToggle variant="mobile" />
+          </div>
+          
+          {!isRecruiterMode && navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}

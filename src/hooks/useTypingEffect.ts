@@ -5,6 +5,7 @@ interface UseTypingEffectProps {
   typingSpeed?: number;
   deletingSpeed?: number;
   pauseDuration?: number;
+  disabled?: boolean;
 }
 
 export const useTypingEffect = ({
@@ -12,6 +13,7 @@ export const useTypingEffect = ({
   typingSpeed = 100,
   deletingSpeed = 50,
   pauseDuration = 1500,
+  disabled = false,
 }: UseTypingEffectProps) => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
   const [displayedText, setDisplayedText] = useState('');
@@ -21,10 +23,10 @@ export const useTypingEffect = ({
   const currentFullText = texts[currentTextIndex];
 
   useEffect(() => {
-    // Check for reduced motion preference
+    // Check for reduced motion preference or disabled state
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    if (prefersReducedMotion) {
+    if (prefersReducedMotion || disabled) {
       setDisplayedText(currentFullText);
       return;
     }
@@ -59,7 +61,7 @@ export const useTypingEffect = ({
     }, isDeleting ? deletingSpeed : typingSpeed);
 
     return () => clearTimeout(timer);
-  }, [displayedText, isDeleting, isPaused, currentFullText, texts, typingSpeed, deletingSpeed, pauseDuration]);
+  }, [displayedText, isDeleting, isPaused, currentFullText, texts, typingSpeed, deletingSpeed, pauseDuration, disabled]);
 
   return displayedText;
 };

@@ -8,8 +8,13 @@ import ExperienceSection from '@/components/ExperienceSection';
 import AchievementsSection from '@/components/AchievementsSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import RecruiterOverview from '@/components/RecruiterOverview';
+import { useRecruiterMode } from '@/contexts/RecruiterModeContext';
+import { cn } from '@/lib/utils';
 
 const Index = () => {
+  const { isRecruiterMode } = useRecruiterMode();
+
   return (
     <>
       <Helmet>
@@ -31,16 +36,40 @@ const Index = () => {
         <link rel="canonical" href="https://shirishala-kiran.dev" />
       </Helmet>
 
-      <main className="min-h-screen bg-background">
+      <main className={cn("min-h-screen bg-background", isRecruiterMode && "recruiter-mode")}>
         <Navbar />
-        <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
-        <AchievementsSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ContactSection />
-        <Footer />
+        
+        {isRecruiterMode ? (
+          <>
+            {/* Recruiter Mode: Simplified hero + overview */}
+            <section className="pt-20 pb-8 text-center">
+              <div className="section-container">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold retro-text mb-2">
+                  <span className="text-accent">Shirishala</span>{' '}
+                  <span className="text-primary">Kiran</span>
+                </h1>
+                <p className="text-lg text-primary/90 font-mono">
+                  B.Tech CSE (AI & ML) • Aspiring Software Developer
+                </p>
+              </div>
+            </section>
+            <RecruiterOverview />
+            <ContactSection />
+            <Footer />
+          </>
+        ) : (
+          <>
+            {/* Normal Mode: Full portfolio */}
+            <HeroSection />
+            <AboutSection />
+            <ProjectsSection />
+            <AchievementsSection />
+            <ExperienceSection />
+            <SkillsSection />
+            <ContactSection />
+            <Footer />
+          </>
+        )}
       </main>
     </>
   );
