@@ -16,7 +16,7 @@ const roles = [
 
 // Actual verified counts
 const PROJECT_COUNT: number = 2; // From ProjectsSection
-const PR_COUNT = 20; // GitHub PRs merged
+const PR_COUNT = 31; // GitHub PRs merged (verified)
 const LEETCODE_COUNT = 5; // Verified from LeetCode profile
 const GFG_COUNT = 22; // Verified from GeeksforGeeks profile
 const DSA_COUNT = LEETCODE_COUNT + GFG_COUNT; // Total: 27
