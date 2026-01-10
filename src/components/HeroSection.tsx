@@ -15,7 +15,7 @@ const roles = [
 ];
 
 // Actual verified counts
-const PROJECT_COUNT = 1; // From ProjectsSection
+const PROJECT_COUNT: number = 2; // From ProjectsSection
 const PR_COUNT = 20; // GitHub PRs merged
 const LEETCODE_COUNT = 5; // Verified from LeetCode profile
 const GFG_COUNT = 22; // Verified from GeeksforGeeks profile
@@ -44,7 +44,7 @@ const stats: StatItem[] = [
     icon: Rocket,
     value: PROJECT_COUNT,
     suffix: '',
-    label: PROJECT_COUNT === 1 ? 'Project Built' : 'Projects Built',
+    label: PROJECT_COUNT === 1 ? 'Project Built' : `Projects Built`,
     href: '#projects',
     external: false,
   },

@@ -2,6 +2,17 @@ import { ShoppingBag, Github, ExternalLink } from 'lucide-react';
 
 const projects = [
   {
+    title: 'UrbanDrive AI',
+    subtitle: 'Smart Autonomous Vehicle Simulator',
+    emoji: '🚗',
+    description:
+      'A hackathon-built autonomous driving simulator implementing a closed-loop Perception → Decision → Action pipeline. Features safety-first decision logic, real-time explainable AI dashboard with decision rationale and confidence scores, dynamic pedestrian injection, and deterministic demo mode. Demonstrates systems thinking, safety-critical logic, and end-to-end product delivery under time constraints.',
+    tags: ['Simulation', 'Explainable AI', 'Systems Design', 'Safety-Critical', 'Real-time'],
+    github: 'https://github.com/Kiran95021/Urban-drive-ai.git',
+    live: 'https://urbandrive-ai.vercel.app',
+    featured: true,
+  },
+  {
     title: 'SwapX',
     subtitle: 'Student Buy & Sell Platform',
     emoji: '⚡',
@@ -9,6 +20,7 @@ const projects = [
       'A campus-focused web platform enabling students to buy and sell items securely within their campus community. Built to promote affordability, reuse, and peer-to-peer interaction.',
     tags: ['Web Platform', 'E-commerce', 'Campus Community', 'React'],
     github: 'https://github.com/Kiran95021/swapX.git',
+    live: 'https://swapxuniversity.vercel.app/home',
     featured: true,
   },
 ];
@@ -68,15 +80,17 @@ const ProjectsSection = () => {
                     <Github size={16} />
                     GitHub
                   </a>
-                  <a
-                    href="https://swapxuniversity.vercel.app/home"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="retro-btn retro-btn-secondary text-sm flex items-center gap-2"
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="retro-btn retro-btn-secondary text-sm flex items-center gap-2"
+                    >
+                      <ExternalLink size={16} />
+                      Live Demo
+                    </a>
+                  )}
                 </div>
               </div>
             ))}
