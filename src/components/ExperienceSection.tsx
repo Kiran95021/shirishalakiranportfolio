@@ -1,7 +1,20 @@
-import { GitBranch, Users, MapPin, Calendar, Briefcase } from 'lucide-react';
+import { GitBranch, Users, MapPin, Calendar } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
-const experiences = [
+interface Experience {
+  emoji: string;
+  title: string;
+  organization: string;
+  description: string;
+  affiliation?: string;
+  timeline?: string;
+  location?: string;
+  stack?: string[];
+  highlights?: string[];
+  isCurrentRole?: boolean;
+}
+
+const experiences: Experience[] = [
   {
     emoji: '🤖',
     title: 'Machine Learning Intern',
@@ -20,18 +33,6 @@ const experiences = [
     organization: 'smartED innovations',
     description:
       'Campus ambassador helping the startup through brand development and outreach.',
-  },
-  {
-    emoji: '⭐',
-    title: 'Selected Contributor',
-    organization: 'Elite Coders Winter of Code (ECWoC) 2026',
-    description:
-      'Selected as a contributor for the prestigious ECWoC program, gaining hands-on experience with open-source development.',
-    highlights: [
-      'Working with GitHub workflows',
-      'Collaborative open-source development',
-      'Code review and best practices',
-    ],
   },
 ];
 
