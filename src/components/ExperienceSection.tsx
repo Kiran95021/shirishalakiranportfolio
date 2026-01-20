@@ -1,6 +1,19 @@
-import { Star, GitBranch, Users } from 'lucide-react';
+import { GitBranch, Users, MapPin, Calendar, Briefcase } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
 
 const experiences = [
+  {
+    emoji: '🤖',
+    title: 'Machine Learning Intern',
+    organization: 'EdXcellence',
+    affiliation: 'AICTE & APSCHE Approved Program',
+    timeline: 'Jan 2026 – Present',
+    location: 'Remote / Bangalore',
+    description:
+      'Selected for a project-based internship focused on end-to-end Machine Learning development. Responsible for building and optimizing predictive models, performing data preprocessing, and implementing ML algorithms using Python. This is an AICTE-recognized technical program focused on industry-standard data science workflows.',
+    stack: ['Python', 'Scikit-Learn', 'Pandas', 'NumPy'],
+    isCurrentRole: true,
+  },
   {
     emoji: '🏆',
     title: 'Campus Ambassador',
@@ -45,22 +58,61 @@ const ExperienceSection = () => {
             {experiences.map((exp) => (
               <div
                 key={exp.title}
-                className="bg-secondary/50 border-2 border-border rounded-lg p-6"
-                style={{ boxShadow: 'var(--shadow-retro-sm)' }}
+                className={`bg-secondary/50 border-2 rounded-lg p-6 ${exp.isCurrentRole ? 'border-primary' : 'border-border'}`}
+                style={{ boxShadow: exp.isCurrentRole ? 'var(--shadow-retro)' : 'var(--shadow-retro-sm)' }}
               >
                 {/* Header */}
                 <div className="flex items-start gap-4 mb-4">
                   <div className="text-2xl">{exp.emoji}</div>
-                  <div>
-                    <h3 className="text-lg md:text-xl font-bold text-accent">{exp.title}</h3>
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 flex-wrap">
+                      <h3 className="text-lg md:text-xl font-bold text-accent">{exp.title}</h3>
+                      {exp.isCurrentRole && (
+                        <Badge variant="default" className="bg-primary text-primary-foreground text-xs">
+                          Current
+                        </Badge>
+                      )}
+                    </div>
                     <p className="text-primary font-bold">{exp.organization}</p>
+                    {exp.affiliation && (
+                      <p className="text-xs text-muted-foreground mt-1">{exp.affiliation}</p>
+                    )}
                   </div>
                 </div>
+
+                {/* Timeline & Location */}
+                {(exp.timeline || exp.location) && (
+                  <div className="flex flex-wrap gap-4 mb-4 text-sm text-foreground/70">
+                    {exp.timeline && (
+                      <div className="flex items-center gap-1.5">
+                        <Calendar size={14} className="text-primary" />
+                        <span>{exp.timeline}</span>
+                      </div>
+                    )}
+                    {exp.location && (
+                      <div className="flex items-center gap-1.5">
+                        <MapPin size={14} className="text-primary" />
+                        <span>{exp.location}</span>
+                      </div>
+                    )}
+                  </div>
+                )}
 
                 {/* Description */}
                 <p className="text-foreground/90 leading-relaxed mb-4">
                   {exp.description}
                 </p>
+
+                {/* Tech Stack */}
+                {exp.stack && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {exp.stack.map((tech) => (
+                      <Badge key={tech} variant="secondary" className="text-xs">
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+                )}
 
                 {/* Highlights */}
                 {exp.highlights && (
