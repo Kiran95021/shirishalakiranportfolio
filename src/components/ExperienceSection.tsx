@@ -33,13 +33,6 @@ const experiences = [
       'Code review and best practices',
     ],
   },
-  {
-    emoji: '❄️',
-    title: 'Selected Contributor',
-    organization: 'Social Winter of Code Season 6 (SWoC)',
-    description:
-      'Selected as a contributor for Social Winter of Code Season 6, contributing to open-source projects and collaborating with developers worldwide.',
-  },
 ];
 
 const ExperienceSection = () => {
