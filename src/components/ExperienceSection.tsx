@@ -28,6 +28,21 @@ const experiences: Experience[] = [
     isCurrentRole: true,
   },
   {
+    emoji: '⭐',
+    title: 'Open Source Contributor',
+    organization: 'ECWoC 2026 (Engineering College Winter of Code)',
+    timeline: '2026',
+    location: 'Remote',
+    description:
+      'Selected as an Open Source Contributor for ECWoC 2026, a national-level open source contribution program. Contributed to real-world projects by collaborating with mentors and developers, navigating large codebases, fixing bugs, and shipping features while following Git/GitHub workflows (PRs, reviews, and issue tracking).',
+    stack: ['Git', 'GitHub', 'Pull Requests', 'Code Reviews', 'Issue Tracking'],
+    highlights: [
+      'Worked consistently across multiple issues and iterations, improving reliability and code quality',
+      'Practiced collaborative development: branching strategy, PR hygiene, and review-driven improvements',
+      'Strengthened problem-solving by debugging production-grade code and learning project conventions',
+    ],
+  },
+  {
     emoji: '🏆',
     title: 'Campus Ambassador',
     organization: 'smartED innovations',
