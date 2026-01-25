@@ -177,6 +177,11 @@ const RecruiterOverview = () => {
               </div>
               <div className="w-px h-8 bg-border hidden sm:block" />
               <div className="text-center">
+                <span className="block text-2xl font-bold text-primary">2</span>
+                <span className="text-muted-foreground">Projects</span>
+              </div>
+              <div className="w-px h-8 bg-border hidden sm:block" />
+              <div className="text-center">
                 <span className="block text-2xl font-bold text-primary">27</span>
                 <span className="text-muted-foreground">DSA Problems</span>
               </div>
