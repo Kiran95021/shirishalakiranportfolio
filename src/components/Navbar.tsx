@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, FileText } from 'lucide-react';
 import RecruiterModeToggle from './RecruiterModeToggle';
 import { useRecruiterMode } from '@/contexts/RecruiterModeContext';
 
@@ -58,6 +58,16 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
+            <a
+              href="https://drive.google.com/file/d/1vepJZiO5tTz0hQY_M4NE7wrS_qBSp-us/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View Resume"
+              className="flex items-center gap-2 px-4 py-2 bg-primary text-primary-foreground font-bold text-sm rounded-lg transition-all duration-200 hover:scale-105 hover:shadow-lg hover:shadow-primary/30"
+            >
+              <FileText size={16} />
+              Resume
+            </a>
             <RecruiterModeToggle variant="desktop" />
           </div>
 
@@ -96,6 +106,19 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          
+          {/* Resume Button - Mobile */}
+          <a
+            href="https://drive.google.com/file/d/1vepJZiO5tTz0hQY_M4NE7wrS_qBSp-us/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Resume"
+            onClick={handleLinkClick}
+            className="flex items-center justify-center gap-2 mt-2 px-4 py-3 bg-primary text-primary-foreground font-bold text-sm rounded-lg transition-all duration-200 hover:scale-105"
+          >
+            <FileText size={16} />
+            Resume
+          </a>
         </div>
       </div>
     </nav>

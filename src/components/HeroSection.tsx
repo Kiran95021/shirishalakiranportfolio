@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Github, Linkedin, Mail, Star, Rocket, Brain } from 'lucide-react';
+import { Github, Linkedin, Mail, Star, Rocket, Brain, FileText } from 'lucide-react';
 import { useTypingEffect } from '@/hooks/useTypingEffect';
 import { useCountUp } from '@/hooks/useCountUp';
 import {
@@ -203,8 +203,18 @@ const HeroSection = () => {
           style={{ animationDelay: '500ms', animationFillMode: 'forwards' }}
         >
           <a 
+            href="https://drive.google.com/file/d/1vepJZiO5tTz0hQY_M4NE7wrS_qBSp-us/view"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Resume"
+            className="retro-btn retro-btn-primary flex items-center gap-2 hover:scale-105 hover:shadow-lg hover:shadow-primary/30 transition-all duration-200"
+          >
+            <FileText size={18} />
+            Resume
+          </a>
+          <a 
             href="#projects" 
-            className="retro-btn retro-btn-primary"
+            className="retro-btn retro-btn-secondary"
           >
             View Projects
           </a>
