@@ -28,7 +28,7 @@ const skillCategories = [
   {
     icon: '💻',
     title: 'Core Concepts',
-    skills: ['Object-Oriented Programming', 'DBMS', 'Time & Space Complexity'],
+    skills: ['Object-Oriented Programming', 'DBMS', 'Time & Space Complexity', 'Operating Systems', 'Computer Networks'],
   },
   {
     icon: '🛠',
