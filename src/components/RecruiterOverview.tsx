@@ -55,7 +55,7 @@ const RecruiterOverview = () => {
                 Download my latest resume in PDF format
               </p>
               <a
-                href="/resume.pdf"
+                href="https://drive.google.com/file/d/1vepJZiO5tTz0hQY_M4NE7wrS_qBSp-us/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="retro-btn retro-btn-primary w-full text-center text-sm flex items-center justify-center gap-2"
