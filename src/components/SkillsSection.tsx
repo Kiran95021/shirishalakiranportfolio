@@ -9,7 +9,7 @@ const skillCategories = [
   {
     icon: '📚',
     title: 'Libraries & Frameworks',
-    skills: ['NumPy', 'Pandas'],
+    skills: ['NumPy', 'Pandas', 'Matplotlib'],
   },
   {
     icon: '🤖',
