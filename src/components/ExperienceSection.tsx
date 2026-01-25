@@ -1,4 +1,4 @@
-import { GitBranch, Users, MapPin, Calendar } from 'lucide-react';
+import { GitBranch, Users, MapPin, Calendar, ExternalLink } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 
 interface Experience {
@@ -12,6 +12,7 @@ interface Experience {
   stack?: string[];
   highlights?: string[];
   isCurrentRole?: boolean;
+  profileLink?: string;
 }
 
 const experiences: Experience[] = [
@@ -40,6 +41,23 @@ const experiences: Experience[] = [
       'Worked consistently across multiple issues and iterations, improving reliability and code quality',
       'Practiced collaborative development: branching strategy, PR hygiene, and review-driven improvements',
       'Strengthened problem-solving by debugging production-grade code and learning project conventions',
+    ],
+    profileLink: 'https://code.elitecoders.xyz/profile/shirishalakiran443',
+  },
+  {
+    emoji: '🌐',
+    title: 'Open Source Contributor',
+    organization: 'Open Source Connect Global (OSCG 2026)',
+    timeline: '2026',
+    location: 'Remote',
+    description:
+      'Selected as an Open Source Contributor for Open Source Connect Global (OSCG 2026), a global open-source initiative focused on real-world collaborative development. Contributing to open-source projects by exploring large codebases, identifying impactful issues, collaborating with maintainers, and submitting well-documented pull requests following industry best practices.',
+    stack: ['Open Source', 'Git', 'GitHub', 'Collaboration', 'Software Development'],
+    highlights: [
+      'Selected as an OSCG 2026 Open Source Contributor',
+      'Worked on real-world open-source repositories using Git and GitHub workflows',
+      'Raised meaningful issues and submitted quality pull requests',
+      'Collaborated with mentors and contributors across the global open-source community',
     ],
   },
   {
@@ -125,7 +143,7 @@ const ExperienceSection = () => {
 
                 {/* Highlights */}
                 {exp.highlights && (
-                  <div className="space-y-2">
+                  <div className="space-y-2 mb-4">
                     {exp.highlights.map((highlight) => (
                       <div key={highlight} className="flex items-center gap-3">
                         <GitBranch size={14} className="text-primary" />
@@ -133,6 +151,19 @@ const ExperienceSection = () => {
                       </div>
                     ))}
                   </div>
+                )}
+
+                {/* Profile Link */}
+                {exp.profileLink && (
+                  <a
+                    href={exp.profileLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 font-medium transition-colors"
+                  >
+                    <ExternalLink size={14} />
+                    <span>View ECWoC Profile</span>
+                  </a>
                 )}
               </div>
             ))}
