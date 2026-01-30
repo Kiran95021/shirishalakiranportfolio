@@ -4,6 +4,12 @@ import { useRecruiterMode } from '@/contexts/RecruiterModeContext';
 // Top 2 projects for recruiters
 const topProjects = [
   {
+    title: 'DRISHTI',
+    problem: 'Predictive geospatial dashboard processing millions of Aadhaar records for UIDAI resource allocation',
+    tech: ['Python', 'Streamlit', 'Pandas', 'Big Data'],
+    github: 'https://github.com/Kiran95021/DRISHTI',
+  },
+  {
     title: 'SwapX',
     problem: 'Campus marketplace for students to buy/sell items securely',
     tech: ['React', 'Web Platform', 'E-commerce'],
@@ -143,28 +149,25 @@ const RecruiterOverview = () => {
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 retro-btn retro-btn-primary text-xs text-center flex items-center justify-center gap-1"
+                      className={`${project.live ? 'flex-1' : 'w-full'} retro-btn retro-btn-primary text-xs text-center flex items-center justify-center gap-1`}
                     >
                       <Github size={14} />
                       GitHub
                     </a>
-                    <a
-                      href={project.live}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex-1 retro-btn retro-btn-secondary text-xs text-center flex items-center justify-center gap-1"
-                    >
-                      <ExternalLink size={14} />
-                      Live Demo
-                    </a>
+                    {project.live && (
+                      <a
+                        href={project.live}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex-1 retro-btn retro-btn-secondary text-xs text-center flex items-center justify-center gap-1"
+                      >
+                        <ExternalLink size={14} />
+                        Live Demo
+                      </a>
+                    )}
                   </div>
                 </div>
               ))}
-              
-              {/* Placeholder for second project */}
-              <div className="bg-secondary/20 border border-dashed border-border rounded-lg p-5 flex items-center justify-center text-muted-foreground text-sm">
-                More projects coming soon...
-              </div>
             </div>
           </div>
 
