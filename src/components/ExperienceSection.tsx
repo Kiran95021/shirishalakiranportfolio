@@ -17,18 +17,6 @@ interface Experience {
 
 const experiences: Experience[] = [
   {
-    emoji: '🤖',
-    title: 'Machine Learning Intern',
-    organization: 'EdXcellence',
-    affiliation: 'AICTE & APSCHE Approved Program',
-    timeline: 'Jan 2026 – Present',
-    location: 'Remote / Bangalore',
-    description:
-      'Selected for a project-based internship focused on end-to-end Machine Learning development. Responsible for building and optimizing predictive models, performing data preprocessing, and implementing ML algorithms using Python. This is an AICTE-recognized technical program focused on industry-standard data science workflows.',
-    stack: ['Python', 'Scikit-Learn', 'Pandas', 'NumPy'],
-    isCurrentRole: true,
-  },
-  {
     emoji: '⭐',
     title: 'Open Source Contributor',
     organization: 'ECWoC 2026 (Engineering College Winter of Code)',
